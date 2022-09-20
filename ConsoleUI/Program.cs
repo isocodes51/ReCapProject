@@ -16,14 +16,46 @@ namespace ConsoleUI
             //    Console.WriteLine(_car.BrandId);
             //}
 
-            carManager.Add(new Car {
-                BrandId=1, ColorId=1, Name="Mercedes", ModelYear="2016", DailyPrice=10000, Description="Mercedes C200 GLA"  
-                });
+            //Add(carManager);
+            //Delete(carManager);
+            Update(carManager);
 
             foreach (var car in carManager.GetAll())
             {
-                Console.WriteLine(car.Name);
+                Console.WriteLine("{0}", car.Name);
             }
+        }
+
+        private static void Update(CarManager carManager)
+        {
+            carManager.Update(new Car
+            {
+                Id = 4,
+                BrandId = 2,
+                ColorId = 1,
+                Name = "Mercedes",
+                DailyPrice = 1000,
+                Description = "Mercedes E 200",
+                ModelYear = "2018"
+            });
+        }
+
+        private static void Delete(CarManager carManager)
+        {
+            carManager.Delete(new Car { Id = 2 });
+        }
+
+        private static void Add(CarManager carManager)
+        {
+            carManager.Add(new Car
+            {
+                BrandId = 1,
+                ColorId = 1,
+                Name = "Bugatti",
+                ModelYear = "2021",
+                DailyPrice = 0,
+                Description = "Bugatti Veyron"
+            });
         }
     }
 }

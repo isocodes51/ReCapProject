@@ -17,12 +17,17 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            if (car.Name.Length < 2 || car.DailyPrice < 0)
+            if (car.Name.Length < 2 || car.DailyPrice <= 0)
             {
                 Console.WriteLine("Hata! ");
             }
             else
                 _carDal.Add(car);
+        }
+
+        public void Delete(Car car)
+        {
+            _carDal.Delete(car);
         }
 
         public List<Car> GetAll()
@@ -38,6 +43,11 @@ namespace Business.Concrete
         public List<Car> GetCarsByColorId(int id)
         {
             return _carDal.GetAll(p => p.ColorId == id);
+        }
+
+        public void Update(Car car)
+        {
+            _carDal.Update(car);
         }
     }
 }

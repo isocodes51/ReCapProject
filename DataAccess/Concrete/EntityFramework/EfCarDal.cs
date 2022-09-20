@@ -28,6 +28,8 @@ namespace DataAccess.Concrete.EntityFramework
                 var deletedEntity = context.Entry(entity);
                 deletedEntity.State = EntityState.Deleted;
                 context.SaveChanges();
+                //context.Cars.Remove(context.Cars.SingleOrDefault(p => p.Id == entity.Id));
+                //context.SaveChanges();
             }
         }
 
